@@ -1,0 +1,147 @@
+{
+  "report_date": "2026-05-03",
+  "site": "singlegrain.com",
+  "site_metrics": {
+    "organic_keywords": 1067,
+    "top_3_keywords": 94,
+    "estimated_traffic": 9032,
+    "traffic_value_usd": 10092.25
+  },
+  "ai_share_of_voice": {
+    "chatgpt_perplexity": {
+      "Single Grain": 0.00016,
+      "singlegrain": 0.00020
+    }
+  },
+  "top_10_priorities": [
+    {
+      "rank": 1,
+      "topic": "Answer Engine Optimization (AEO)",
+      "keyword": "answer engine optimization",
+      "volume": 3500,
+      "kd": 34,
+      "cpc_usd": 4.00,
+      "seo_score": 8,
+      "aeo_score": 10,
+      "category": "new_content",
+      "action": "Create pillar page + topic cluster",
+      "has_ai_overview": true
+    },
+    {
+      "rank": 2,
+      "topic": "AI SEO Agency Service Page",
+      "keyword": "ai seo agency",
+      "volume": 2000,
+      "kd": 2,
+      "cpc_usd": 8.00,
+      "seo_score": 10,
+      "aeo_score": 6,
+      "category": "new_content",
+      "action": "Create BOFU service/landing page"
+    },
+    {
+      "rank": 3,
+      "topic": "AI Marketing Agency Landing",
+      "keyword": "ai marketing agency",
+      "volume": 2400,
+      "kd": 27,
+      "cpc_usd": 6.00,
+      "seo_score": 9,
+      "aeo_score": 7,
+      "category": "new_content",
+      "action": "Create conversion-focused landing page"
+    },
+    {
+      "rank": 4,
+      "topic": "AI Search Optimization Guide",
+      "keyword": "ai search optimization",
+      "volume": 4800,
+      "kd": 53,
+      "cpc_usd": 0.70,
+      "seo_score": 7,
+      "aeo_score": 9,
+      "category": "new_content",
+      "action": "Create comprehensive optimization guide",
+      "has_ai_overview": true
+    },
+    {
+      "rank": 5,
+      "topic": "Is YouTube Social Media (Refresh)",
+      "keyword": "is youtube considered social media",
+      "volume": 2700,
+      "current_position": 5,
+      "kd": 0,
+      "seo_score": 8,
+      "aeo_score": 9,
+      "category": "quick_win",
+      "action": "Add FAQ schema, update 2026 stats, optimize for AI citation",
+      "has_ai_overview": true
+    },
+    {
+      "rank": 6,
+      "topic": "LLM SEO Guide",
+      "keyword": "llm seo",
+      "volume": 1400,
+      "kd": 29,
+      "cpc_usd": 5.00,
+      "seo_score": 7,
+      "aeo_score": 9,
+      "category": "new_content",
+      "action": "Create definitive guide — first-mover",
+      "has_ai_overview": true
+    },
+    {
+      "rank": 7,
+      "topic": "Enterprise SEO Companies (Refresh)",
+      "keyword": "enterprise seo companies",
+      "volume": 1200,
+      "current_position": 16,
+      "kd": 4,
+      "seo_score": 7,
+      "aeo_score": 8,
+      "category": "quick_win",
+      "action": "Update 2026 list, add comparison table for featured snippet",
+      "has_ai_overview": true
+    },
+    {
+      "rank": 8,
+      "topic": "Programmatic SEO Guide",
+      "keyword": "programmatic seo",
+      "volume": 2200,
+      "kd": 24,
+      "cpc_usd": 2.00,
+      "seo_score": 8,
+      "aeo_score": 8,
+      "category": "new_content",
+      "action": "Create definitive guide with real examples",
+      "has_ai_overview": true
+    },
+    {
+      "rank": 9,
+      "topic": "Do Keywords Still Matter (Refresh)",
+      "keyword": "do keywords matter anymore",
+      "volume": 600,
+      "current_position": 8,
+      "kd": 0,
+      "seo_score": 6,
+      "aeo_score": 9,
+      "category": "quick_win",
+      "action": "Update with 2026 AI search data, strengthen thesis",
+      "has_ai_overview": true
+    },
+    {
+      "rank": 10,
+      "topic": "AI Agents for Marketing",
+      "keyword": "ai agents for marketing",
+      "volume": 900,
+      "kd": 14,
+      "seo_score": 7,
+      "aeo_score": 9,
+      "category": "new_content",
+      "action": "Create thought leadership piece"
+    }
+  ],
+  "striking_distance_keywords_count": 75,
+  "keywords_with_ai_overview": 28,
+  "total_aeo_keyword_volume": 48600
+}
