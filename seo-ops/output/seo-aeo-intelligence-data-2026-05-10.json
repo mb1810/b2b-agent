@@ -1,0 +1,56 @@
+{
+  "report_date": "2026-05-10",
+  "domain": "singlegrain.com",
+  "site_metrics": {
+    "organic_keywords": 780,
+    "keywords_top_3": 58,
+    "organic_traffic": 7354,
+    "traffic_value_usd": 9702.54,
+    "paid_keywords": 0
+  },
+  "keyword_opportunities": {
+    "trending_aeo_keywords": [
+      {"keyword": "generative engine optimization", "volume": 11000, "kd": 76, "cpc_usd": 6.00, "ai_overview": true, "ai_overview_sitelink": true},
+      {"keyword": "ai seo", "volume": 8400, "kd": 64, "cpc_usd": 0.80, "ai_overview": true, "ai_overview_sitelink": false},
+      {"keyword": "agentic commerce", "volume": 5600, "kd": 33, "cpc_usd": null, "ai_overview": false, "ai_overview_sitelink": false},
+      {"keyword": "ai search optimization", "volume": 4800, "kd": 52, "cpc_usd": 0.70, "ai_overview": true, "ai_overview_sitelink": false},
+      {"keyword": "answer engine optimization", "volume": 3500, "kd": 38, "cpc_usd": 4.00, "ai_overview": true, "ai_overview_sitelink": true},
+      {"keyword": "ai marketing agency", "volume": 2400, "kd": 48, "cpc_usd": 6.00, "ai_overview": false, "ai_overview_sitelink": false},
+      {"keyword": "ai content marketing", "volume": 2200, "kd": 36, "cpc_usd": 0.30, "ai_overview": true, "ai_overview_sitelink": false},
+      {"keyword": "ai marketing automation", "volume": 2200, "kd": 50, "cpc_usd": 0.60, "ai_overview": true, "ai_overview_sitelink": false},
+      {"keyword": "programmatic seo", "volume": 2200, "kd": 24, "cpc_usd": 2.00, "ai_overview": true, "ai_overview_sitelink": false},
+      {"keyword": "what is aeo", "volume": 1900, "kd": 19, "cpc_usd": 1.90, "ai_overview": true, "ai_overview_sitelink": true},
+      {"keyword": "aeo vs seo", "volume": 1700, "kd": 12, "cpc_usd": null, "ai_overview": false, "ai_overview_sitelink": false},
+      {"keyword": "marketing ai tools", "volume": 1300, "kd": 68, "cpc_usd": 3.00, "ai_overview": true, "ai_overview_sitelink": false},
+      {"keyword": "aeo marketing", "volume": 900, "kd": 24, "cpc_usd": null, "ai_overview": false, "ai_overview_sitelink": false},
+      {"keyword": "ai agents for marketing", "volume": 900, "kd": 14, "cpc_usd": null, "ai_overview": false, "ai_overview_sitelink": false},
+      {"keyword": "llm optimization", "volume": 600, "kd": 7, "cpc_usd": 6.00, "ai_overview": true, "ai_overview_sitelink": true},
+      {"keyword": "how to rank in chatgpt", "volume": 600, "kd": 1, "cpc_usd": null, "ai_overview": false, "ai_overview_sitelink": false},
+      {"keyword": "how to optimize for ai search", "volume": 450, "kd": 41, "cpc_usd": 6.00, "ai_overview": true, "ai_overview_sitelink": false},
+      {"keyword": "ai overviews seo", "volume": 450, "kd": 45, "cpc_usd": 7.00, "ai_overview": false, "ai_overview_sitelink": false},
+      {"keyword": "ai citation optimization", "volume": 250, "kd": 1, "cpc_usd": null, "ai_overview": false, "ai_overview_sitelink": false}
+    ],
+    "striking_distance_with_aeo": [
+      {"keyword": "is youtube considered social media", "position": 5, "volume": 2700, "kd": 0, "ai_overview": true, "url": "https://www.singlegrain.com/digital-marketing-strategy/is-youtube-considered-social-media-the-definitive-answer/"},
+      {"keyword": "enterprise seo companies", "position": 16, "volume": 1200, "kd": 4, "ai_overview": false, "snippet": true, "url": "https://www.singlegrain.com/digital-marketing-strategy/8-top-seo-agencies-for-high-growth-tech-startups-in-2025/"},
+      {"keyword": "search engine optimization consulting", "position": 12, "volume": 1100, "kd": 22, "ai_overview": true, "url": "https://www.singlegrain.com/consultants-agency-owners/what-are-search-engine-optimization-consultants-when-to-hire/"},
+      {"keyword": "reddit seo", "position": 19, "volume": 1600, "kd": 37, "ai_overview": false, "url": "https://www.singlegrain.com/seo/what-is-reddit-seo-and-why-it-matters-for-marketers/"},
+      {"keyword": "do keywords matter anymore", "position": 8, "volume": 600, "kd": 0, "ai_overview": true, "url": "https://www.singlegrain.com/content-marketing-strategy-2/do-keywords-matter-anymore-in-the-ai-search-era/"},
+      {"keyword": "search engine marketing strategies", "position": 12, "volume": 800, "kd": 20, "ai_overview": true, "url": "https://www.singlegrain.com/blog/sem-strategies/"},
+      {"keyword": "enterprise keyword ranking", "position": 13, "volume": 700, "kd": 4, "ai_overview": true, "url": "https://www.singlegrain.com/blog/enterprise-seo-tracking-keywords/"},
+      {"keyword": "clickfunnels cost", "position": 9, "volume": 500, "kd": 3, "ai_overview": true, "url": "https://www.singlegrain.com/resources/what-is-clickfunnels/"}
+    ]
+  },
+  "top_10_priorities": [
+    {"rank": 1, "topic": "AEO vs SEO", "type": "NEW", "seo_score": 9, "aeo_score": 10, "combined": 95},
+    {"rank": 2, "topic": "Answer Engine Optimization pillar", "type": "NEW", "seo_score": 8, "aeo_score": 10, "combined": 90},
+    {"rank": 3, "topic": "What Is AEO definition page", "type": "NEW", "seo_score": 8, "aeo_score": 10, "combined": 90},
+    {"rank": 4, "topic": "Is YouTube Social Media refresh", "type": "REFRESH", "seo_score": 9, "aeo_score": 9, "combined": 90},
+    {"rank": 5, "topic": "Agentic Commerce explainer", "type": "NEW", "seo_score": 9, "aeo_score": 8, "combined": 85},
+    {"rank": 6, "topic": "How to Rank in ChatGPT", "type": "NEW", "seo_score": 7, "aeo_score": 10, "combined": 85},
+    {"rank": 7, "topic": "LLM Optimization for Marketers", "type": "NEW", "seo_score": 8, "aeo_score": 9, "combined": 85},
+    {"rank": 8, "topic": "Do Keywords Matter refresh", "type": "REFRESH", "seo_score": 7, "aeo_score": 9, "combined": 80},
+    {"rank": 9, "topic": "AI Agents for Marketing", "type": "NEW", "seo_score": 8, "aeo_score": 8, "combined": 80},
+    {"rank": 10, "topic": "AI Citation Optimization", "type": "NEW", "seo_score": 6, "aeo_score": 10, "combined": 80}
+  ]
+}
