@@ -22,8 +22,10 @@ from datetime import datetime
 SCRIPT_DIR = Path(__file__).resolve().parent
 DATA_DIR   = SCRIPT_DIR.parent / "data"
 
-# Load .env if present
-env_file = SCRIPT_DIR.parent.parent / ".env"
+# Load .env — check skill dir first, then repo root
+env_file = SCRIPT_DIR.parent / ".env"
+if not env_file.exists():
+    env_file = SCRIPT_DIR.parent.parent / ".env"
 if env_file.exists():
     for line in env_file.read_text().splitlines():
         line = line.strip()
@@ -183,40 +185,77 @@ def _extract_person(p):
 
 
 def enrich_company(company, resolve_emails=True):
-    """Full enrichment: org lookup → contact find → email match."""
-    name  = company["company_name"]
-    city  = company.get("city", "")
-    state = company.get("state", "")
+    """
+    Enrichment strategy for 506(c) fund vehicles:
+    1. Extract principal name from Form D (signer or related person)
+    2. Use Apollo people/match with name + company name to find their profile + email
+    3. Fall back to org search if no named principal found
+    """
+    company_name = company["company_name"]
 
-    # Step 1: find org in Apollo
-    org_data = enrich_organization(name, city, state)
-    if not org_data:
-        company["apollo_status"] = "org_not_found"
-        return company
+    # Build candidate contacts from Form D data
+    candidates = []
+    signer = company.get("signer_name", "")
+    signer_title = company.get("signer_title", "")
+    if signer and " " in signer:
+        parts = signer.strip().split(" ", 1)
+        candidates.append({"first_name": parts[0], "last_name": parts[1], "title": signer_title})
 
-    company.update(org_data)
+    for rp in company.get("related_persons", []):
+        if rp.get("first_name") and rp.get("last_name"):
+            roles = ", ".join(rp.get("roles", []))
+            candidates.append({"first_name": rp["first_name"], "last_name": rp["last_name"], "title": roles})
 
-    # Step 2: find contact
-    contact = find_contact(org_data.get("apollo_org_id"), name, org_data.get("domain"))
-    if not contact:
-        company["apollo_status"] = "contact_not_found"
-        return company
+    if not candidates:
+        # Fall back to org search
+        org_data = enrich_organization(company_name, company.get("city"), company.get("state"))
+        if not org_data:
+            company["apollo_status"] = "no_principal_found"
+            return company
+        company.update(org_data)
+        contact = find_contact(org_data.get("apollo_org_id"), company_name)
+        if not contact:
+            company["apollo_status"] = "contact_not_found"
+            return company
+        company.update(contact)
+        candidates = [{"first_name": contact["contact_first_name"],
+                       "last_name":  contact.get("contact_last_name", ""),
+                       "title":      contact.get("contact_title", "")}]
 
-    company.update(contact)
+    # Try each candidate via people/match
+    for candidate in candidates:
+        first = candidate["first_name"]
+        last  = candidate["last_name"]
 
-    # Step 3: get email
-    if resolve_emails and contact.get("contact_first_name") and org_data.get("domain"):
-        email = match_email(
-            contact["contact_first_name"],
-            contact.get("contact_last_name", ""),
-            org_data["domain"],
-            org_data.get("apollo_org_id"),
-        )
-        company["contact_email"] = email
-        company["apollo_status"] = "enriched" if email else "no_email"
-    else:
-        company["apollo_status"] = "contact_found"
+        result = apollo_request("people/match", {
+            "first_name":        first,
+            "last_name":         last,
+            "organization_name": company_name,
+            "reveal_personal_emails": False,
+        })
 
+        if result and result.get("person"):
+            person = result["person"]
+            email  = person.get("email")
+            domain = (person.get("organization") or {}).get("primary_domain", "")
+
+            company["contact_first_name"] = first
+            company["contact_last_name"]  = last
+            company["contact_title"]      = candidate.get("title") or person.get("title") or ""
+            company["contact_email"]      = email
+            company["contact_linkedin"]   = person.get("linkedin_url")
+            company["domain"]             = domain
+            company["employee_count"]     = (person.get("organization") or {}).get("estimated_num_employees")
+            company["apollo_person_id"]   = person.get("id")
+            company["apollo_status"]      = "enriched" if email else "profile_found_no_email"
+            return company
+
+    company["apollo_status"] = "person_not_in_apollo"
+    # Still store the principal name even without Apollo match
+    if candidates:
+        company["contact_first_name"] = candidates[0]["first_name"]
+        company["contact_last_name"]  = candidates[0]["last_name"]
+        company["contact_title"]      = candidates[0].get("title", "")
     return company
 
 

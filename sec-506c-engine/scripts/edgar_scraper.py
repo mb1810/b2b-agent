@@ -128,17 +128,34 @@ def get_filing_xml(cik, adsh):
                 pass
         return None
 
+    # Extract related persons (fund principals)
+    related_persons = []
+    rp_block = re.search(r"<relatedPersonsList>(.*?)</relatedPersonsList>", content, re.DOTALL)
+    if rp_block:
+        for rp in re.findall(r"<relatedPersonInfo>(.*?)</relatedPersonInfo>", rp_block.group(1), re.DOTALL):
+            fn = extract("firstName", rp) or ""
+            ln = extract("lastName", rp) or ""
+            rels = re.findall(r"<relationship>(.*?)</relationship>", rp)
+            if fn or ln:
+                related_persons.append({
+                    "first_name": fn,
+                    "last_name":  ln,
+                    "roles":      rels,
+                })
+
     data = {
         "issuer_name":       extract("issuerName", content),
         "industry_group":    extract("industryGroupType", content),
         "offering_amount":   extract_int("totalOfferingAmount", content),
         "amount_sold":       extract_int("totalAmountSold", content),
-        "street":            extract("street1", content),
         "city":              extract("city", content),
         "state":             extract("stateOrCountry", content),
         "zip":               extract("zipCode", content),
         "phone":             extract("issuerPhoneNumber", content),
         "entity_type":       extract("entityType", content),
+        "signer_name":       extract("signatureName", content),
+        "signer_title":      extract("signatureTitle", content),
+        "related_persons":   related_persons,
     }
 
     cache_file.write_text(json.dumps(data))
@@ -229,6 +246,9 @@ def scrape(days=90, min_offering=0, industry_filter=None, dry_run=False, max_res
         company = {
             "company_name":    xml_data.get("issuer_name") or name,
             "icp_fit":         "high" if industry in HIGH_FIT_INDUSTRIES else "medium",
+            "signer_name":     xml_data.get("signer_name") or "",
+            "signer_title":    xml_data.get("signer_title") or "",
+            "related_persons": xml_data.get("related_persons") or [],
             "cik":             cik,
             "adsh":            adsh,
             "file_date":       file_date,
