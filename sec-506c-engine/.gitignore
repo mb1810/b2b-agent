@@ -1,0 +1,7 @@
+.env
+data/edgar-cache/
+data/enriched/
+data/dossiers/
+data/sequences/
+__pycache__/
+*.pyc
